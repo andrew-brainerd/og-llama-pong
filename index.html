@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>LLama Pong Scoreboard</title>
+    </head>
+    <body>
+        <section id="header">
+            
+        </section>
+        <section id="content"></section>
+        <section id="footer"></section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+        <script type="text/javascript">
+            if (annyang) {
+                console.log("Voice commands enabled");
+                var commands = {
+                    "point brainerd": function () {
+                        console.log("Point Brainerd");
+                        $("body").css("background", "black");
+                    },
+                    "point fillmore": function () {
+                        console.log("Point Fillmore");
+                        $("body").css("background", "blue");
+                    },
+                    "point zervas": function () {
+                        console.log("Point Zervas");
+                        $("body").css("background", "green");
+                    }
+                };
+                annyang.addCommands(commands);
+                annyang.start();
+            } else page.css("background", "#001E3D");
+        </script>
+    </body>
+</html>
