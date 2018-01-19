@@ -1,17 +1,9 @@
-function SayTheScore(serverScore, receiverScore) {
-    if (!flag){
-        flag = true;
-        var synth = speechSynthesis;
-        utterance = new SpeechSynthesisUtterance(
-              "The score is now " + serverScore + " to " + receiverScore
-            );
-        utterance.voice = synth.getVoices()[0];
-        utterance.onend = function(){
-            flag = false;
-        };
-        synth.speak(utterance);
-    }
-    if (synth.paused) { /* unpause/resume narration */
-        synth.resume();
+function SaySomething(thingToSay) {
+    utterance = new SpeechSynthesisUtterance(thingToSay);
+    utterance.voice = speechSynthesis.getVoices()[1];
+    speechSynthesis.speak(utterance);
+
+    if (speechSynthesis.paused) { /* unpause/resume narration */
+        speechSynthesis.resume();
     }
 }
