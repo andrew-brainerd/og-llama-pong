@@ -15,7 +15,7 @@ $("#rightPointCount").click(function () {
 });
 
 if (annyang) {
-    //SaySomething("Welcome to LLama Pong. Voice commands are enabled. Let's get started");
+    SaySomething("Welcome to LLama Pong. Let's get started");
     SaySomething("Who is serving first, left or right?");
 
     var commands = {
@@ -93,7 +93,7 @@ function ProcessScore(leftScore, rightScore) {
         receiverScore = leftPointCounter;
     }
 
-    //SaySomething("The score is now " + serverScore + " serving " + receiverScore);
+    SaySomething("The score is now " + serverScore + " serving " + receiverScore);
 
     if (leftScore == 21 || rightScore == 21) {
         if (leftScore == 21) {
