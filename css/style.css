@@ -1,7 +1,13 @@
 body {
     background: black;
+    color: white;
+    font-family: sans-serif;
 }
 
 .point-counter {
-    width: 50%;
+    display: inline-block;
+    font-size: 5vw;
+    padding: 15%;
+    text-align: center;
+    width: 49%;
 }
