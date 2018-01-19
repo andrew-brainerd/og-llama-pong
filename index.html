@@ -1,35 +1,21 @@
 <html>
     <head>
         <title>LLama Pong Scoreboard</title>
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
         <section id="header">
             
         </section>
-        <section id="content"></section>
+        <section id="content">
+            <div class="point-counter" id="leftPointCount">0</div>
+            <div class="point-counter" id="rightPointCount">0</div>
+        </section>
         <section id="footer"></section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-        <script type="text/javascript">
-            if (annyang) {
-                console.log("Voice commands enabled");
-                var commands = {
-                    "point brainerd": function () {
-                        console.log("Point Brainerd");
-                        $("body").css("background", "black");
-                    },
-                    "point fillmore": function () {
-                        console.log("Point Fillmore");
-                        $("body").css("background", "blue");
-                    },
-                    "point zervas": function () {
-                        console.log("Point Zervas");
-                        $("body").css("background", "green");
-                    }
-                };
-                annyang.addCommands(commands);
-                annyang.start();
-            } else page.css("background", "#001E3D");
-        </script>
+        <script src="js/speech.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

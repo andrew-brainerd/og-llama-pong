@@ -1,0 +1,13 @@
+body {
+    background: black;
+    color: white;
+    font-family: sans-serif;
+}
+
+.point-counter {
+    display: inline-block;
+    font-size: 5vw;
+    padding: 15%;
+    text-align: center;
+    width: 49%;
+}
