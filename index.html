@@ -15,26 +15,27 @@
         <section id="footer"></section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+        <script src="js/speech.js"></script>
         <script type="text/javascript">
             var leftPointCounter = 0;
             var rightPointCounter = 0;
+            var flag = false;
 
             if (annyang) {
-                console.log("Voice commands enabled");
                 var commands = {
                     "point left": function () {
                         console.log("Point Left");
-                        $("body").css("background", "blue");
 
                         leftPointCounter++;
                         $("#leftPointCount").text(leftPointCounter);
+                        SayTheScore(leftPointCounter, rightPointCounter);
                     },
                     "point right": function () {
                         console.log("Point Right");
-                        $("body").css("background", "green");
 
                         rightPointCounter++;
                         $("#rightPointCount").text(rightPointCounter);
+                        SayTheScore(rightPointCounter, leftPointCounter);
                     }
                 };
                 annyang.debug();
