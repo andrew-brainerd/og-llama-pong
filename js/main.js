@@ -4,6 +4,7 @@ var left = 0;
 var right = 1;
 var server;
 var gameStarted = false;
+var gameEnded = false;
 
 $("#leftPointCount").click(function() {
     IncrementLeftScore();
@@ -35,10 +36,14 @@ if (annyang) {
             }  
         },
         "point left": function() {
-            IncrementLeftScore();
+            if (gameStarted && !gameEnded) {
+                IncrementLeftScore();
+            }
         },
         "point right": function() {
-            IncrementRightScore();
+            if (gameStarted && !gameEnded) {
+                IncrementRightScore();
+            }
         }
     };
     annyang.debug();
@@ -88,5 +93,16 @@ function ProcessScore(leftScore, rightScore) {
         receiverScore = leftPointCounter;
     }
 
-    SaySomething("The score is now " + serverScore + " serving " + receiverScore);
+    //SaySomething("The score is now " + serverScore + " serving " + receiverScore);
+
+    if (leftScore == 21 || rightScore == 21) {
+        if (leftScore == 21) {
+            player = "Left";
+        } else {
+            player = "Right";
+        }
+
+        gameEnded = true;
+        $("body").empty().append("<h1>" + player + " is the winner!</h1>");
+    }
 }
