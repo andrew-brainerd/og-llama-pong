@@ -9,11 +9,19 @@ var gameEnded = false;
 $(".point-counter").text(0);
 
 $("#leftPointCount").click(function() {
-    IncrementLeftScore();
+    if (!gameStarted) {
+        StartTheGame(left);
+    } else {
+        IncrementLeftScore();
+    }
 });
 
 $("#rightPointCount").click(function () {
-    IncrementRightScore();
+    if (!gameStarted) {
+        StartTheGame(left);
+    } else {
+        IncrementLeftScore();
+    }
 });
 
 $(document).keydown(function (e) {
@@ -128,5 +136,5 @@ function ProcessScore(leftScore, rightScore) {
         receiverScore = leftPointCounter;
     }
 
-    //SaySomething("The score is now " + serverScore + " serving " + receiverScore);   
+    SaySomething("The score is now " + serverScore + " serving " + receiverScore);   
 }
